@@ -1,3 +1,4 @@
 .bundle
 *.lock
 datasift.php
+config/keys.yml
