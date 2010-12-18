@@ -5,6 +5,7 @@ require 'yaml'
 
 module Rsift
   class Connection
+    
     def initialize
       @api_url = YAML::load_file("config/keys.yml")["url"]
       @api_key = YAML::load_file("config/keys.yml")["api-key"]

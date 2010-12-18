@@ -6,8 +6,7 @@ gem "rest-client", "1.4.2"
 gem "jakal", "0.1.95"
 
 group :test do
-  gem "test-unit", "1.2.3", :require => "test/unit"  
+  gem "test-unit", "1.2.3", :require => "test/unit" 
   gem "shoulda", "2.11.3"
-  gem "factory_girl", "1.3.2"
-  gem "webmock", "1.6.1"
+  gem "webmock", "1.6.1", :require => nil  
 end

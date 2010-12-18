@@ -1,8 +1,6 @@
 module Rsift
   class Stream
-    
-    
-    
+
     def initialize
       @conn = Rsift::Connection.new
       @format = "json"
