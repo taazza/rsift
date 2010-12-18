@@ -13,7 +13,8 @@ module Rsift
     end
     
     def get(path)
-      Jkl::get_from(@api_url+path+auth_string)
+      request = "#{@api_url}#{path}#{auth_string}"
+      JSON.parse(Jkl::get_from(request))
     end
     
     def auth_string

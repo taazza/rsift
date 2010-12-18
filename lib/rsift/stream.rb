@@ -4,15 +4,10 @@ module Rsift
     def initialize
       @conn = Rsift::Connection.new
       @format = "json"
-      @section = "stream"end
-    
-    def get_stream(id)
-      verb = "get"
-      get("#{@section}/#{verb}.#{@format}?#{@section}_id=#{id}")
+      @section = "stream"
     end
-  
-    def create_stream(opts = {})
-      verb = "create"
+    
+    def do(verb, opts = {})
       get("#{@section}/#{verb}.#{@format}?&"+
           Rsift::escape_options(opts).join("&"))
     end
