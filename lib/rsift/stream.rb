@@ -1,10 +1,12 @@
-module Rsift
-  class Stream
+require_relative "model"
 
-    def initialize
-      @conn = Rsift::Connection.new
+module Rsift
+  class Stream < Rsift::Model
+    
+    def initialize(url, key, username)
       @format = "json"
       @section = "stream"
+      super(url, key, username)
     end
     
     def do(verb, opts = {})

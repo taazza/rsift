@@ -5,7 +5,14 @@ require_relative "../../lib/rsift"
 
 class StreamTest < Test::Unit::TestCase
   include WebMock::API
-    
+
+  def setup
+    @api_url = YAML::load_file("config/keys.yml")["url"]
+    @api_key = YAML::load_file("config/keys.yml")["api-key"]
+    @username = YAML::load_file("config/keys.yml")["username"]
+    @stream = Rsift::Stream.new(@api_url,@api_key,@username)
+  end  
+
   context "with streams" do
     setup do
       body = '{"success":true}'
@@ -16,13 +23,13 @@ class StreamTest < Test::Unit::TestCase
     end
     
     should "list my streams" do
-      response = Rsift::Stream.new.do("my")
+      response = @stream.do("my")
       assert_equal true, response["success"]
     end
     
     should "get a stream" do
       opts = {:stream_id => "1"}
-      response = Rsift::Stream.new.do("get", opts)
+      response = @stream.do("get", opts)
       assert_equal true, response["success"]
     end
     
@@ -31,7 +38,7 @@ class StreamTest < Test::Unit::TestCase
        :description => "it's a test description",
        :definition => 'interaction.content contains " London"',
        :tags => "london, uk"}
-       response = Rsift::Stream.new.do("create", opts)
+       response = @stream.do("create", opts)
       assert_equal true, response["success"]
     end
     
@@ -42,25 +49,25 @@ class StreamTest < Test::Unit::TestCase
               :definition => 'interaction.content contains " London"',
               :add_tags => "tag1",
               :remove_tage => "tag2"}
-      response = Rsift::Stream.new.do("update", opts)
+      response = @stream.do("update", opts)
       assert_equal true, response["success"]
     end
     
     should "duplicate a stream" do
       opts = {:stream_id => "1"}
-      response = Rsift::Stream.new.do("duplicate", opts)
+      response = @stream.do("duplicate", opts)
       assert_equal true, response["success"]
     end
     
     should "rate a stream" do
       opts = {:stream_id => "1", :rating => 5}
-      response = Rsift::Stream.new.do("rate", opts)
+      response = @stream.do("rate", opts)
       assert_equal true, response["success"]
     end
     
     should "delete a stream" do
       opts = {:stream_id => "1"}
-      response = Rsift::Stream.new.do("delete", opts)
+      response = @stream.do("delete", opts)
       assert_equal true, response["success"]
     end
   end

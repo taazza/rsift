@@ -2,3 +2,4 @@
 *.lock
 datasift.php
 config/keys.yml
+*._*

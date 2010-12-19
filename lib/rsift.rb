@@ -3,6 +3,7 @@ $:.unshift(File.dirname(__FILE__)) unless
 
 require "rsift/connection"
 require "rsift/stream"
+require "rsift/model"
 
 module Rsift
   class << self
