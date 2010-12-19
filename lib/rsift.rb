@@ -5,6 +5,7 @@ require "rsift/model"
 require "rsift/connection"
 require "rsift/stream"
 require "rsift/comment"
+require "rsift/data"
 
 module Rsift
   class << self
