@@ -1,9 +1,10 @@
 $:.unshift(File.dirname(__FILE__)) unless
   $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
+require "rsift/model"
 require "rsift/connection"
 require "rsift/stream"
-require "rsift/model"
+require "rsift/comment"
 
 module Rsift
   class << self
