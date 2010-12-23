@@ -1,5 +1,4 @@
 module Rsift
-
   class Model
 
     def initialize(url, key, username)
