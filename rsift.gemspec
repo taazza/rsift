@@ -23,8 +23,6 @@ EOF
   s.add_dependency("json", "1.4.6")
   s.add_dependency("rest-client", "1.4.2")
   s.add_dependency("jakal", "0.1.95")
-  s.add_dependency("em-http-request", "0.2.15")
-  s.add_dependency("yajl-ruby", "0.7.8")
 
   # Test libraries
   s.add_dependency("test-unit", "1.2.3")
